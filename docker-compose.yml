@@ -1,0 +1,13 @@
+web:
+  build: ./src
+  command: python src/main.py
+  ports:
+    - "5000:5000"
+  volumes:
+    - .:/people
+  links:
+    - db
+db:
+  image: mongo:3.6.6
+  ports:
+    - "27017:27017"
